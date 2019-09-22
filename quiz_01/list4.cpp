@@ -21,7 +21,7 @@ void PrintMenu(){
 void DisplayList(ListNode** head){
 	ListNode* temp = *head;
 	if(temp == NULL){
-		printf("empty\n");
+		printf("List = Empty\n");
 	}
 	else{
 		printf("List = ");
@@ -62,7 +62,7 @@ void RemoveList(ListNode** head){
 	scanf("%d",&input);
 
 	if(temp == NULL){
-		printf("not data\n");
+		printf("There is not data\n");
 	}	
 	else if(temp->data == input){
 		tmp = temp->link;
@@ -84,7 +84,7 @@ void RemoveList(ListNode** head){
 			temp = temp->link;
 		}
 		if(temp->data != input){
-			printf("not data\n");
+			printf("There is not data\n");
 		}
 		else{
 			tmp = temp->link;
@@ -107,18 +107,18 @@ void FindList(ListNode** head){
 	scanf("%d",&input);
 
 	if(temp == NULL){
-		printf("false\n");
+		printf("There is not data\n");
 	}
 	else{
 		while(temp != NULL){
 			if(temp->data == input){
-				printf("true\n");
+				printf("find data\n");
 				break;
 			}	
 			temp = temp->link;
 		}
 		if(temp==NULL){
-			printf("false\n");
+			printf("be unable to find data\n");
 		}
 	}	
 }
@@ -126,11 +126,16 @@ void FindList(ListNode** head){
 void GetSize(ListNode** head){
 	ListNode* temp = *head;
 	int count=0;
-	while(temp!=NULL){
-		count++;
-		temp = temp->link;
+	if(temp == NULL){
+		printf("There is not data\n");
 	}
-	printf("Data %d\n",count);
+	else{
+		while(temp!=NULL){
+			count++;
+			temp = temp->link;
+		}
+		printf("Data %d\n",count);
+	}
 }	
 
 void FreeList(ListNode** head){
